@@ -1,0 +1,53 @@
+#include<iostream>
+using namespace std;
+
+template<class type>
+class genClass {
+public:
+	void swap(int& input_a, int& input_b) {
+		int tmp;
+		tmp = input_a;
+		input_a = input_b;
+		input_b = tmp;
+	}
+};
+//&연산자는 변수의 주소값을 알아내는 연산자
+
+int main() {
+	int a = 10;
+	int b = 20;
+
+	swap(a, b);
+
+	cout << a << endl;
+	cout << b << endl;
+}
+
+
+//또는 아래 방법
+
+#include<iostream>
+using namespace std;
+
+template<class type>
+class genClass {
+public:
+	void swap(int *input_a, int *input_b) {
+		int tmp;
+		tmp = *input_a;
+		*input_a = *input_b;
+		*input_b = tmp;
+	}
+};
+// *연산자는 포인터 변수에 저장되어있는 주소가 가르키는 실제 데이터 값을 불러옴
+int main() {
+	int a = 10;
+	int b = 20;
+
+	swap(&a, &b); // *연산자를 썼으므로 주소를 넣기위해 &연산자 입력
+
+	cout << a << endl;
+	cout << b << endl;
+}
+
+//실제로 a와 b를 바꾸는게 아니기 때문에 &와 *이 없으면 안됨. &와 *로 실제로 변수의 주소로 가서 바꾸어야 함.

@@ -1,0 +1,19 @@
+#include<iostream>
+using namespace std;
+
+template<class type>
+class Name {
+public:
+	type m_value;
+};
+
+int main() {
+	Name<int> int_class;
+	Name<double> double_class;
+
+	int_class.m_value = 10;
+	double_class.m_value = 20.2;
+
+	cout << int_class.m_value << endl;
+	cout << double_class.m_value << endl;
+}

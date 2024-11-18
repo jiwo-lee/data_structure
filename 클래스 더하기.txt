@@ -1,0 +1,44 @@
+#include <iostream>
+
+using namespace std;
+
+class CNumber {
+public:
+	int m_value;
+
+	CNumber() {
+		m_value = 0;
+	}
+};
+
+CNumber operator + (const CNumber& arg1, int arg2) {
+	CNumber temp;
+	temp.m_value = arg1.m_value + arg2;
+	return temp;
+}
+
+CNumber operator + (const CNumber& arg1, const CNumber& arg2) {
+	CNumber temp;
+	temp.m_value = arg1.m_value + arg2.m_value;
+	return temp;
+}
+
+CNumber operator + (int arg1, const CNumber& arg2) {
+	CNumber temp;
+	temp.m_value = arg1 + arg2.m_value;
+	return temp;
+}
+
+int main(void) {
+
+	CNumber t1;
+	t1.m_value = 1;
+	CNumber t2;
+	t2.m_value = 2;
+	CNumber s = t1 + t2 + 3;
+	CNumber t3 = 3 + t1;
+
+	cout << t3.m_value << endl;
+
+	return 0;
+}
